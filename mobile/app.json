@@ -13,6 +13,9 @@
     },
     "android": {},
     "web": {},
+    "experiments": {
+      "baseUrl": "/PusulaProject"
+    },
     "plugins": [
       "expo-asset",
       "expo-font",
