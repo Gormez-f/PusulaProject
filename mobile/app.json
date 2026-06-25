@@ -1,0 +1,22 @@
+{
+  "expo": {
+    "name": "Pusula",
+    "slug": "pusula",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "dark",
+    "splash": {
+      "backgroundColor": "#1A1B1E"
+    },
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {},
+    "web": {},
+    "plugins": [
+      "expo-asset",
+      "expo-font",
+      "@react-native-community/datetimepicker"
+    ]
+  }
+}

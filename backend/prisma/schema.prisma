@@ -1,0 +1,53 @@
+// Pusula — veri katmani.
+// MVP: SQLite (sifir kurulum). Ileride Postgres'e (TR bulut, KVKK) gecis.
+// Not: SQLite native enum desteklemez -> kategori/feedback String tutulur,
+// gecerlilik uygulama katmaninda shared/challenges.ts ile zorlanir.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+/// Cekirdek tablo: her etkilesim yapilandirilmis tek satir olarak saklanir.
+/// Bu satirlar gelecekte ML icin egitim verisi -> bastan temiz/tutarli olmali.
+model Interaction {
+  id           String   @id @default(uuid())
+
+  /// Anonim cihaz-id. Gercek kimlik DEGIL (login yok). KVKK: kimlik LLM'e gitmez.
+  userPseudoId String
+  createdAt    DateTime @default(now())
+
+  // --- Girdi (dil sinyali) ---
+  inputText    String   /// kullanicinin ham ifadesi (cihaz tarafi; LLM'e pseudonim gider)
+  inputMode    String   @default("text") /// "text" | "voice"
+
+  // --- LLM siniflandirma ciktisi ---
+  /// 7 kategoriden biri: task_initiation | overwhelm | time_blindness |
+  /// distraction | hyperfocus | forgetfulness | emotional_overflow
+  predictedChallenge String
+  confidence         Float   /// LLM guven skoru 0..1 (Zorluk_Tespit_Akisi §3)
+  reasoning          String? /// LLM gerekcesi (aciklanabilirlik)
+  /// Guven dusukse dogrulama sorusu soruldu mu (active learning). MVP'de altyapi.
+  needsClarification Boolean @default(false)
+
+  // --- Sunulan mudahale (strateji kutuphanesi snapshot'i) ---
+  interventionId   String /// library.json referansi (or. "ti_2min")
+  interventionText String /// kullaniciya gosterilen metin (o anki snapshot)
+
+  // --- Geri bildirim (ogrenme dongusu) ---
+  feedback   String?   /// "worked" | "did_not_work" | null (henuz cevap yok)
+  feedbackAt DateTime?
+
+  // --- Baglam alanlari: MVP'de cogu BOS, sema bastan hazir ---
+  ctxHourOfDay    Int?    /// gunun saati 0..23 (otomatik doldurulabilir)
+  ctxCalendarLoad String? /// ileride takvim entegrasyonu -> simdilik null
+  ctxCyclePhase   String? /// ileride dongu (ayri acik riza) -> simdilik null
+
+  @@index([userPseudoId])
+  @@index([predictedChallenge])
+  @@index([createdAt])
+}

@@ -1,0 +1,107 @@
+{
+  "task_initiation": {
+    "label": "Baslayamama",
+    "interventions": [
+      {
+        "id": "ti_2min",
+        "text": "Sadece 2 dakika. Ac yeter — bitirmek zorunda degilsin.",
+        "uiHint": "timer_2min"
+      },
+      {
+        "id": "ti_tiny_step",
+        "text": "En kucuk ilk adim ne? Gulunc derecede kucuk olsun. Onu yap, gerisi sonra.",
+        "uiHint": "single_step"
+      }
+    ]
+  },
+  "overwhelm": {
+    "label": "Asiri yuklenme",
+    "interventions": [
+      {
+        "id": "ov_braindump",
+        "text": "Kafandaki her seyi buraya bosalt. Sirayla degil, geldigi gibi.",
+        "uiHint": "braindump"
+      },
+      {
+        "id": "ov_pick_one",
+        "text": "Hepsini gordum. Simdi sadece bir tanesini sec — gerisini bir kenara koyuyorum.",
+        "uiHint": "pick_one"
+      }
+    ]
+  },
+  "time_blindness": {
+    "label": "Zaman korlugu",
+    "interventions": [
+      {
+        "id": "tb_visible_timer",
+        "text": "Sure gozunun onunde olsun. Bir geri sayim baslatalim mi?",
+        "uiHint": "countdown"
+      },
+      {
+        "id": "tb_realistic_estimate",
+        "text": "Bu is genelde sandigindan biraz uzun suruyor. Biraz pay birak.",
+        "uiHint": "estimate_hint"
+      }
+    ]
+  },
+  "distraction": {
+    "label": "Daginiklik",
+    "interventions": [
+      {
+        "id": "ds_focus_block",
+        "text": "Kisa bir odak blogu: 15 dakika tek is. Bildirimleri kisalim mi?",
+        "uiHint": "focus_block"
+      },
+      {
+        "id": "ds_body_double",
+        "text": "Yaninda biri varmis gibi calis. Ben buradayim, birlikte basliyoruz.",
+        "uiHint": "body_double"
+      }
+    ]
+  },
+  "hyperfocus": {
+    "label": "Hiperodak",
+    "interventions": [
+      {
+        "id": "hf_gentle_break",
+        "text": "Bir suredir buradasin. Kisa bir mola, biraz su — sonra devam.",
+        "uiHint": "break_reminder"
+      },
+      {
+        "id": "hf_posture",
+        "text": "Bir an dur: omuzlarini gevset, derin bir nefes. Hala buradayim.",
+        "uiHint": "posture_reset"
+      }
+    ]
+  },
+  "forgetfulness": {
+    "label": "Unutkanlik",
+    "interventions": [
+      {
+        "id": "fg_quick_capture",
+        "text": "Hemen yakala — tek dokunusla kaydet, kaybolmasin. Sonra dogru yere koyarim.",
+        "uiHint": "quick_capture"
+      },
+      {
+        "id": "fg_where_was_i",
+        "text": "Nerede kalmistin? Kisaca yaz, ipini tekrar yakalayalim.",
+        "uiHint": "resume_context"
+      }
+    ]
+  },
+  "emotional_overflow": {
+    "label": "Duygusal tasma",
+    "interventions": [
+      {
+        "id": "eo_soothe",
+        "text": "Su an zor, biliyorum. Once bir nefes — yapacak bir sey yok, sadece buradayiz.",
+        "uiHint": "soothe"
+      },
+      {
+        "id": "eo_reframe",
+        "text": "Bu his gecici. Gorevi simdilik erteleyebiliriz; kendine biraz alan tani.",
+        "uiHint": "reframe_postpone"
+      }
+    ]
+  }
+}
